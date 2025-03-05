@@ -76,7 +76,7 @@ def create_vector_embedding():
         st.session_state.vectors=FAISS.from_documents(st.session_state.final_documents,st.session_state.embeddings)
 st.title("RAG Document Q&A With Groq And Llama3")
 
-user_prompt=st.text_input("Enter your query from the research paper")
+user_prompt=st.text_input("Enter your query from the Docs/Uploaded-Docs")
 
 if st.button("Document Embedding"):
     create_vector_embedding()
@@ -91,8 +91,9 @@ if user_prompt:
     start=time.process_time()
     response=retrieval_chain.invoke({'input':user_prompt})
     print(f"Response time :{time.process_time()-start}")
-
     st.write(response['answer'])
+    st.write("Response time :"+str(time.process_time()-start))
+
 
     ## With a streamlit expander
     with st.expander("Document similarity Search"):
