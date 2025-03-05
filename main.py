@@ -56,7 +56,7 @@ if uploaded_files:
 prompt=ChatPromptTemplate.from_template(
     """
     Answer the questions based on the provided context only.
-    Please provide the most accurate respone based on the question
+    Please provide the most accurate respone based on the question.
     <context>
     {context}
     <context>
